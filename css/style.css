@@ -28,7 +28,7 @@ h3 {
 
 #cookieShopHourlyValues {
   width: 75vw;
-  min-width: 630px;
+  min-width: 420px;
   border: 5px #525E75 solid;
   border-radius: 12px;
   padding: 10px;
@@ -44,7 +44,7 @@ h3 {
 header {
   position: relative;
   width: 75vw;
-  min-width: 660px;
+  min-width: 420px;
   aspect-ratio: 787 / 246;
   border: 5px solid #525E75;
   border-radius: 12px;
