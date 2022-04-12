@@ -80,9 +80,9 @@ const tokyoShop = {
 
 const dubaiShop = {
   myLoc: 'Dubai',
-  minCust: 3,
-  maxCust: 24,
-  cookiesPerCust: 1.2,
+  minCust: 11,
+  maxCust: 38,
+  cookiesPerCust: 3.7,
   openTime: 6,
   closeTime: 20,
   dailyCookies: [],
@@ -105,9 +105,9 @@ const dubaiShop = {
 
 const parisShop = {
   myLoc: 'Paris',
-  minCust: 3,
-  maxCust: 24,
-  cookiesPerCust: 1.2,
+  minCust: 20,
+  maxCust: 38,
+  cookiesPerCust: 2.3,
   openTime: 6,
   closeTime: 20,
   dailyCookies: [],
@@ -130,9 +130,9 @@ const parisShop = {
 
 const limaShop = {
   myLoc: 'Lima',
-  minCust: 3,
-  maxCust: 24,
-  cookiesPerCust: 1.2,
+  minCust: 2,
+  maxCust: 16,
+  cookiesPerCust: 4.6,
   openTime: 6,
   closeTime: 20,
   dailyCookies: [],
