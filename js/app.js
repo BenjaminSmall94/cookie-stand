@@ -1,3 +1,5 @@
+'use strict';
+
 function printHTMLCookies(dailyCookiesArr, totalCookies, loc) {
   let allListContainer = document.getElementById('cookieShopHourlyValues');
   let listAndHeaderContainer = document.createElement('div');
