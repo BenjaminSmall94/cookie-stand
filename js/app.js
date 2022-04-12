@@ -1,4 +1,4 @@
-function printHTMLCookies(dailyCookiesArr, loc) {
+function printHTMLCookies(dailyCookiesArr, totalCookies, loc) {
   let allListContainer = document.getElementById('cookieShopHourlyValues');
   let listAndHeaderContainer = document.createElement('div');
   let listHeader = document.createElement('h3');
@@ -23,6 +23,9 @@ function printHTMLCookies(dailyCookiesArr, loc) {
     }
     shopList.appendChild(cookieInfo);
   }
+  let totalCookieElement = document.createElement('li');
+  totalCookieElement.textContent = `Total: ${totalCookies} cookies`;
+  shopList.appendChild(totalCookieElement);
 }
 
 const seattleShop = {
@@ -156,8 +159,8 @@ dubaiShop.dailyCookies = dubaiShop.getDailyCookies();
 parisShop.dailyCookies = parisShop.getDailyCookies();
 limaShop.dailyCookies = limaShop.getDailyCookies();
 
-printHTMLCookies(seattleShop.dailyCookies[0], seattleShop.myLoc);
-printHTMLCookies(tokyoShop.dailyCookies[0], tokyoShop.myLoc);
-printHTMLCookies(dubaiShop.dailyCookies[0], dubaiShop.myLoc);
-printHTMLCookies(parisShop.dailyCookies[0], parisShop.myLoc);
-printHTMLCookies(limaShop.dailyCookies[0], limaShop.myLoc);
+printHTMLCookies(seattleShop.dailyCookies[0], seattleShop.dailyCookies[1], seattleShop.myLoc);
+printHTMLCookies(tokyoShop.dailyCookies[0], tokyoShop.dailyCookies[1], tokyoShop.myLoc);
+printHTMLCookies(dubaiShop.dailyCookies[0], dubaiShop.dailyCookies[1], dubaiShop.myLoc);
+printHTMLCookies(parisShop.dailyCookies[0], parisShop.dailyCookies[1], parisShop.myLoc);
+printHTMLCookies(limaShop.dailyCookies[0], limaShop.dailyCookies[1], limaShop.myLoc);
