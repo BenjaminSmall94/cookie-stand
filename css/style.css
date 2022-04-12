@@ -15,7 +15,7 @@ h1, h2 {
 }
 
 h1 {
-  font-size: 30pt;
+  font-size: 28pt;
 }
 
 h2 {
@@ -27,7 +27,8 @@ h3 {
 }
 
 #cookieShopHourlyValues {
-  width: 630px;
+  width: 60vw;
+  min-width: 630px;
   border: 5px #525E75 solid;
   border-radius: 12px;
   padding: 10px;
@@ -42,27 +43,27 @@ h3 {
 
 header {
   position: relative;
-  height: 246px;
-  width: 50vw;
+  width: 60vw;
+  min-width: 660px;
+  aspect-ratio: 787 / 246;
   border: 5px solid #525E75;
   border-radius: 12px;
   background-color: #224DA8;
-  margin: auto;
+  margin: 10px auto;
+  padding: 10px;
 }
 
 /* https://stackoverflow.com/questions/27256849/is-it-possible-to-use-vh-minus-pixels-in-a-css-calc */
 header h1 {
-  position: relative;
-  width: calc(100% - 40px);
+  position: absolute;
+  width: calc(100% - 30px);
   z-index: 1;
-  padding-left: 20px;
-  padding-right: 20px;
-  padding-top: 20%;
+  top: 47%;
 }
 
 header img {
   position: absolute;
-  top: 0;
+  top: 10px;
   left: 20px;
   width: calc(100% - 40px);
 }
