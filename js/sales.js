@@ -52,6 +52,7 @@ function printFinalRow(cityTable, columnTotals, overallTotal, open, close) {
   cityTable.appendChild(tableFoot);
   tableFoot.appendChild(finalRow);
   finalRow.appendChild(columnTotalHeader);
+  columnTotalHeader.className = 'rowHeader';
   columnTotalHeader.textContent = 'Totals';
   for(let column = open; column < close; column++) {
     let columnTotalData = document.createElement('td');
@@ -69,7 +70,9 @@ function printFirstRow(cityTable, open, close, columnTotals) {
   const firstRow = document.createElement('tr');
   cityTable.appendChild(tableHead);
   tableHead.appendChild(firstRow);
-  firstRow.appendChild(document.createElement('th'));
+  let firstEl = document.createElement('th');
+  firstRow.appendChild(firstEl);
+  firstEl.id = 'firstEl';
   for(let i = open; i < close; i++) {
     columnTotals[i] = 0;
     let hourHeader = document.createElement('th');
@@ -117,6 +120,7 @@ function CookieShop(loc, min, max, avgCookies, open, close) {
     tableBody.appendChild(tableRow);
     const rowHeader = document.createElement('th');
     tableRow.appendChild(rowHeader);
+    rowHeader.className = 'rowHeader';
     rowHeader.textContent = shop.myLoc;
     let rowTotal = 0;
     for(let column = earliestOpen; column < latestClose ; column++) {

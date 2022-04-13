@@ -30,7 +30,7 @@ h3 {
 header {
   position: relative;
   width: 75vw;
-  min-width: 420px;
+  min-width: 630px;
   aspect-ratio: 787 / 246;
   border: 5px solid #525E75;
   border-radius: 12px;
@@ -70,7 +70,7 @@ nav a {
 
 #cookieShopHourlyValues {
   width: 75vw;
-  min-width: 420px;
+  min-width: max-content;
   border: 5px #525E75 solid;
   border-radius: 12px;
   padding: 10px;
@@ -78,9 +78,33 @@ nav a {
   margin: 5px auto;
 }
 
-.listContainer {
-  display: inline-block;
-  width: 210px;
+table {
+  margin: 20px auto 5px;
+}
+
+th, td {
+  border: 2px solid #a8aeb8;
+  padding: 3px;
+}
+
+th {
+  font-weight: bold;
+}
+
+#firstEl {
+  border: none;
+}
+
+thead {
+  border-bottom: 3px solid black;
+}
+
+tfoot {
+  border-top: 3px solid black;
+}
+
+.rowHeader {
+  border-right: 3px solid black;
 }
 
 p {
