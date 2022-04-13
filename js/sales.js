@@ -1,12 +1,12 @@
 'use strict';
 
-let allShops = [];
+
 const seattleShop = new CookieShop('Seattle', 23, 65, 6.3, 6, 20);
 const tokyoShop = new CookieShop('Tokyo', 3, 24, 1.2, 6, 20);
 const dubaiShop = new CookieShop('Dubai', 11, 38, 3.7, 6, 20);
 const parisShop = new CookieShop('Paris', 20, 38, 3.7, 6, 20);
 const limaShop = new CookieShop('Lima', 2, 16, 4.6, 6, 20);
-allShops.push(seattleShop, tokyoShop, dubaiShop, parisShop, limaShop);
+let allShops = [seattleShop, tokyoShop, dubaiShop, parisShop, limaShop];
 printHTMLCookies();
 
 function printHTMLCookies() {
@@ -15,57 +15,12 @@ function printHTMLCookies() {
   allListContainer.appendChild(cityTable);
   let openHours = findRange();
   let columnTotals = [];
-  printFirstRow(cityTable, openHours[0], openHours[1], columnTotals);
-  const tableBody = document.createElement('tbody');
-  cityTable.appendChild(tableBody);
-  let overallTotal = 0;
-  for(let row = 0; row < allShops.length; row++) {
-    overallTotal += allShops[row].render(allShops[row], tableBody, columnTotals, openHours[0], openHours[1]);
-  }
+  printFirstRow(cityTable, columnTotals, openHours[0], openHours[1]);
+  let overallTotal = printTableBody(cityTable, columnTotals, openHours[0], openHours[1]);
   printFinalRow(cityTable, columnTotals, overallTotal, openHours[0], openHours[1]);
 }
 
-function findRange() {
-  let earliestOpen;
-  let latestClose;
-  for(let i = 0; i < allShops.length; i++) {
-    console.log(allShops[i].myLoc);
-    console.log(allShops[i].closeTime);
-    if(earliestOpen === undefined) {
-      earliestOpen = allShops[i].openTime;
-    } else if (allShops[i].openTime < earliestOpen) {
-      earliestOpen = allShops[i].openTime;
-    }
-    if(latestClose === undefined) {
-      latestClose = allShops[i].closeTime;
-    } else if (allShops[i].closeTime > latestClose) {
-      latestClose = allShops[i].closeTime;
-    }
-  }
-  return [earliestOpen, latestClose];
-}
-
-function printFinalRow(cityTable, columnTotals, overallTotal, open, close) {
-  const tableFoot = document.createElement('tfoot');
-  const finalRow = document.createElement('tr');
-  const columnTotalHeader = document.createElement('th');
-  cityTable.appendChild(tableFoot);
-  tableFoot.appendChild(finalRow);
-  finalRow.appendChild(columnTotalHeader);
-  columnTotalHeader.className = 'rowHeader';
-  columnTotalHeader.textContent = 'Totals';
-  for(let column = open; column < close; column++) {
-    let columnTotalData = document.createElement('td');
-    finalRow.appendChild(columnTotalData);
-    columnTotalData.textContent = columnTotals[column];
-  }
-  let totalData = document.createElement('td');
-  finalRow.appendChild(totalData);
-  totalData.textContent = overallTotal;
-  console.log(columnTotals);
-}
-
-function printFirstRow(cityTable, open, close, columnTotals) {
+function printFirstRow(cityTable, columnTotals, open, close) {
   const tableHead = document.createElement('thead');
   const firstRow = document.createElement('tr');
   cityTable.appendChild(tableHead);
@@ -92,6 +47,53 @@ function printFirstRow(cityTable, open, close, columnTotals) {
   let rowTotalHeader = document.createElement('th');
   firstRow.appendChild(rowTotalHeader);
   rowTotalHeader.textContent = 'Daily Total';
+}
+
+function printTableBody(cityTable, columnTotals, earliestOpen, latestClose) {
+  const tableBody = document.createElement('tbody');
+  cityTable.appendChild(tableBody);
+  let overallTotal = 0;
+  for(let row = 0; row < allShops.length; row++) {
+    overallTotal += allShops[row].render(allShops[row], tableBody, columnTotals, earliestOpen, latestClose);
+  }
+  return overallTotal;
+}
+
+function printFinalRow(cityTable, columnTotals, overallTotal, open, close) {
+  const tableFoot = document.createElement('tfoot');
+  const finalRow = document.createElement('tr');
+  const columnTotalHeader = document.createElement('th');
+  cityTable.appendChild(tableFoot);
+  tableFoot.appendChild(finalRow);
+  finalRow.appendChild(columnTotalHeader);
+  columnTotalHeader.className = 'rowHeader';
+  columnTotalHeader.textContent = 'Totals';
+  for(let column = open; column < close; column++) {
+    let columnTotalData = document.createElement('td');
+    finalRow.appendChild(columnTotalData);
+    columnTotalData.textContent = columnTotals[column];
+  }
+  let totalData = document.createElement('td');
+  finalRow.appendChild(totalData);
+  totalData.textContent = overallTotal;
+}
+
+function findRange() {
+  let earliestOpen;
+  let latestClose;
+  for(let i = 0; i < allShops.length; i++) {
+    if(earliestOpen === undefined) {
+      earliestOpen = allShops[i].openTime;
+    } else if (allShops[i].openTime < earliestOpen) {
+      earliestOpen = allShops[i].openTime;
+    }
+    if(latestClose === undefined) {
+      latestClose = allShops[i].closeTime;
+    } else if (allShops[i].closeTime > latestClose) {
+      latestClose = allShops[i].closeTime;
+    }
+  }
+  return [earliestOpen, latestClose];
 }
 
 function CookieShop(loc, min, max, avgCookies, open, close) {
