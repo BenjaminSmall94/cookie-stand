@@ -93,6 +93,7 @@ th {
 
 #firstEl {
   border: none;
+  border-right: 3px solid black;
 }
 
 thead {
