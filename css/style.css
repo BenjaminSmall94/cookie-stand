@@ -26,25 +26,11 @@ h3 {
   font-size: x-large;
 }
 
-#cookieShopHourlyValues {
-  width: 75vw;
-  min-width: 420px;
-  border: 5px #525E75 solid;
-  border-radius: 12px;
-  padding: 10px;
-  background-color: #224DA8;
-  margin: 5px auto;
-}
-
-.listContainer {
-  display: inline-block;
-  width: 210px;
-}
 
 header {
   position: relative;
   width: 75vw;
-  min-width: 420px;
+  min-width: 630px;
   aspect-ratio: 787 / 246;
   border: 5px solid #525E75;
   border-radius: 12px;
@@ -68,6 +54,59 @@ header img {
   width: calc(100% - 40px);
 }
 
+nav {
+  text-align: center;
+}
+
+nav a {
+  position: relative;
+  color: white;
+  z-index: 1;
+}
+
+#storeLogo {
+  content: url(../img/salmon.png);
+}
+
+#cookieShopHourlyValues {
+  width: 75vw;
+  min-width: max-content;
+  border: 5px #525E75 solid;
+  border-radius: 12px;
+  padding: 10px;
+  background-color: #224DA8;
+  margin: 5px auto;
+}
+
+table {
+  margin: 20px auto 5px;
+}
+
+th, td {
+  border: 2px solid #a8aeb8;
+  padding: 3px;
+}
+
+th {
+  font-weight: bold;
+}
+
+#firstEl {
+  border: none;
+}
+
+thead {
+  border-bottom: 3px solid black;
+}
+
+tfoot {
+  border-top: 3px solid black;
+}
+
+.rowHeader {
+  border-right: 3px solid black;
+}
+
 p {
   text-indent: 40px;
   margin-bottom: 5px;
@@ -81,7 +120,7 @@ li {
   display: list-item;
   list-style-position: inside;
   margin-left: 10px;
-  margin-bottom: 1px;
+  margin-bottom: 2px;
 }
 
 ol li {
@@ -90,8 +129,4 @@ ol li {
 
 ul li {
   list-style-type: disc;
-}
-
-strong {
-  font-weight: bold;
 }
