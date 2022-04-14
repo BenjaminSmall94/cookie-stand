@@ -1,0 +1,87 @@
+/* https://css-tricks.com/snippets/css/simple-and-nice-blockquote-styling/ */
+main > div {
+  position: relative;
+  width: 75vw;
+  max-width: 960px;
+  min-width: 630px;
+  margin: 10px auto;
+  display: flex;
+  justify-content: space-between;
+}
+
+main > div:first-child > div {
+  border: 5px solid #525E75;
+  border-radius: 12px;
+  background-color: #224DA8;
+  padding: 10px;
+  margin: 0px;
+  height: 240px;
+}
+
+main > div:first-of-type > div:first-of-type {
+  width: 55%;
+  overflow: scroll;
+}
+
+blockquote {
+  text-indent: 0px;
+  border-left: 10px solid #ccc;
+  margin: 5px 10px 5px;
+  padding: 0.5em 10px;
+}
+
+blockquote:before {
+  content: open-quote;
+  line-height: 0.1em;
+  margin-right: 0.4em;
+  vertical-align: -0.4em;
+}
+
+main > div:first-of-type > div:nth-child(2) {
+  width: 35%;
+  overflow: scroll;
+}
+
+main > div:first-of-type > div:nth-child(2) div {
+  position: sticky;
+  background-color: #224DA8;
+  top: -10px;
+  z-index: 1;
+}
+
+main > div:first-of-type > div:nth-child(2) li {
+  margin-bottom: 1em;
+}
+
+/* main > div:nth-child(2) {
+  justify-content: center;
+} */
+
+main > div:nth-child(2) > div {
+  border-radius: 12px;
+  width: 100%;
+  height: 300px;
+  overflow: hidden;
+}
+
+main > div:nth-child(2) img {
+  position: relative;
+  top: -34%;
+  left: -14%;
+  width: 120%;
+}
+
+footer > div {
+  width: 75vw;
+  max-width: 960px;
+  min-width: 630px;
+  margin: 10px auto;
+}
+
+footer > div > div {
+  border: 5px solid #525E75;
+  border-radius: 12px;
+  background-color: #224DA8;
+  padding: 10px;
+  margin: 0px;
+}

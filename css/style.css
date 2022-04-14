@@ -26,18 +26,18 @@ h3 {
   font-size: x-large;
 }
 
-header div:first-of-type {
+header div div:first-of-type {
   position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
-  aspect-ratio: 787 / 246;
   border: 5px solid #525E75;
   border-radius: 12px;
   background-color: #224DA8;
+  aspect-ratio: 787 / 246;
 }
 
-header div {
+header > div {
   width: 75vw;
   max-width: 960px;
   min-width: 630px;
@@ -58,7 +58,7 @@ header img {
 
 nav ul {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
 }
 
 nav li {
@@ -80,10 +80,6 @@ nav li a {
   content: url(../img/salmon.png);
 }
 
-main div {
-  background-color: #224DA8;
-  border: 5px #525E75 solid;
-  border-radius: 12px;
-  padding: 10px;
-  margin: 5px auto;
+strong {
+  font-weight: bold;
 }
