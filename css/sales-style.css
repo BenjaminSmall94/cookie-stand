@@ -20,8 +20,28 @@ main > div:nth-child(2) {
   width: max-content;
 }
 
-label, input {
-  /* display: inline; */
+legend {
+  font-size: x-large;
+  margin-bottom: 10px;
+  text-decoration: underline;
+}
+
+fieldset div {
+  position: relative;
+  margin-bottom: 6px;
+}
+
+fieldset div input {
+  position: absolute;
+  left: 180px;
+  height: 1em;
+}
+
+fieldset button {
+  margin: 5px;
+  font-size: large;
+  position: relative;
+  left: 210px;
 }
 
 table {
