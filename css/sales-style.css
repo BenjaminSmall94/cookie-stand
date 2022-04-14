@@ -1,10 +1,27 @@
-main div {
-  width: max-content;
+main > div {
+  margin: auto;
+}
+
+main > div > div {
   background-color: #224DA8;
   border: 5px #525E75 solid;
   border-radius: 12px;
   padding: 10px;
   margin: 5px auto;
+}
+
+main > div:first-child {
+  width: 75vw;
+  max-width: 960px;
+  min-width: 630px;
+}
+
+main > div:nth-child(2) {
+  width: max-content;
+}
+
+label, input {
+  /* display: inline; */
 }
 
 table {

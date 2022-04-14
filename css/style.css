@@ -26,7 +26,7 @@ h3 {
   font-size: x-large;
 }
 
-header div div:first-of-type {
+header > div > div:first-of-type {
   position: relative;
   display: flex;
   justify-content: center;
