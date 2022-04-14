@@ -1,0 +1,33 @@
+main div {
+  width: max-content;
+}
+
+table {
+  margin: 20px auto 5px;
+}
+
+th, td {
+  border: 2px solid #a8aeb8;
+  padding: 3px;
+}
+
+th {
+  font-weight: bold;
+}
+
+#firstEl {
+  border: none;
+  border-right: 3px solid black;
+}
+
+thead {
+  border-bottom: 3px solid black;
+}
+
+tfoot {
+  border-top: 3px solid black;
+}
+
+.rowHeader {
+  border-right: 3px solid black;
+}
