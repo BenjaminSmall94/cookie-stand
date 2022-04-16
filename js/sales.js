@@ -1,14 +1,15 @@
 'use strict';
 
 CookieShop.prototype.startRow = function(tableBody, rowName) {
-  const tableRow = appendAndSet(tableBody, 'tr');
-  const rowHeader = appendAndSet(tableRow, 'th', rowName);
+  const tableRow = createAppendSet(tableBody, 'tr');
+  const rowHeader = createAppendSet(tableRow, 'th', rowName);
   rowHeader.className = 'rowHeader';
   return tableRow;
 };
 
 CookieShop.prototype.render = function(isCookies) {
-  const tableRow = this.startRow(getTableBody(isCookies), this.myLoc);
+  const currTableBody = getTableBody(isCookies);
+  const tableRow = this.startRow(currTableBody, this.myLoc);
   let maxCookies = 0;
   for(let currColumn = widestOpenHours[0]; currColumn < widestOpenHours[1]; currColumn++) {
     if(this.dailyCookies[currColumn] !== undefined) {
@@ -17,25 +18,25 @@ CookieShop.prototype.render = function(isCookies) {
         maxCookies = currNum;
       }
       if(isCookies) {
-        appendAndSet(tableRow, 'td', currNum);
+        createAppendSet(tableRow, 'td', currNum);
       } else {
         if(currNum < 40) {
-          appendAndSet(tableRow, 'td', 2);
+          createAppendSet(tableRow, 'td', 2);
         } else {
-          appendAndSet(tableRow, 'td', Math.ceil(currNum / 20));
+          createAppendSet(tableRow, 'td', Math.ceil(currNum / 20));
         }
       }
     } else {
-      appendAndSet(tableRow, 'td');
+      createAppendSet(tableRow, 'td');
     }
   }
   if(isCookies) {
-    appendAndSet(tableRow, 'td', this.totalCookies);
+    createAppendSet(tableRow, 'td', this.totalCookies);
   } else {
     if(maxCookies < 40) {
-      appendAndSet(tableRow, 'td', 2);
+      createAppendSet(tableRow, 'td', 2);
     } else {
-      appendAndSet(tableRow, 'td', Math.ceil(maxCookies / 20));
+      createAppendSet(tableRow, 'td', Math.ceil(maxCookies / 20));
     }
   }
 };
@@ -70,26 +71,30 @@ printHTMLTable('Cookie Sales', 'Shop Total', true);
 printHTMLTable('Staffing', 'Shop Max', false);
 document.getElementById('New Store').addEventListener('submit', initNewShop);
 
-function printHTMLTable(tableName, rightColumnHeader, isCookies) {
-  if (isCookies) {
-    tables[0] = setUpTable(tableName);
-  } else {
-    tables[1] = setUpTable(tableName);
-  }
+function printHTMLTable(tableLabel, rightColumnHeader, isCookies) {
+  printTableTitle(tableLabel, isCookies);
+  printTableMain(isCookies, rightColumnHeader);
+}
+
+function printTableMain(isCookies, rightColumnHeader) {
   printFirstRow(isCookies, rightColumnHeader);
   printTableBody(isCookies);
   printFinalRow(isCookies);
 }
 
-function setUpTable(tableLabel) {
-  appendAndSet(tableContainer, 'h2', 'Daily ' + tableLabel);
-  return appendAndSet(tableContainer, 'table');
+function printTableTitle(tableLabel, isCookies) {
+  createAppendSet(tableContainer, 'h2', 'Daily ' + tableLabel);
+  if (isCookies) {
+    tables[0] = createAppendSet(tableContainer, 'table');
+  } else {
+    tables[1] = createAppendSet(tableContainer, 'table');
+  }
 }
 
 function printFirstRow(isCookies, lastHeader) {
-  let currTable = initializeSection(isCookies, tableHead, 'thead');
-  const firstRow = appendAndSet(currTable, 'tr');
-  const firstEl = appendAndSet(firstRow, 'th');
+  let currSection = initializeSection(isCookies, tableHead, 'thead');
+  const firstRow = createAppendSet(currSection, 'tr');
+  const firstEl = createAppendSet(firstRow, 'th');
   firstEl.id = 'firstEl';
   for(let i = widestOpenHours[0]; i < widestOpenHours[1]; i++) {
     let hourHeader = document.createElement('th');
@@ -106,7 +111,7 @@ function printFirstRow(isCookies, lastHeader) {
     }
     firstRow.appendChild(hourHeader);
   }
-  appendAndSet(firstRow, 'th', lastHeader);
+  createAppendSet(firstRow, 'th', lastHeader);
 }
 
 function printTableBody(isCookies) {
@@ -118,27 +123,27 @@ function printTableBody(isCookies) {
 
 function printFinalRow(isCookies) {
   const currSection = initializeSection(isCookies, tableFoot, 'tfoot');
-  const finalRow = appendAndSet(currSection, 'tr');
-  const columnTotalHeader = appendAndSet(finalRow, 'th', 'Total');
+  const finalRow = createAppendSet(currSection, 'tr');
+  const columnTotalHeader = createAppendSet(finalRow, 'th', 'Total');
   columnTotalHeader.className = 'rowHeader';
   let columnMax = 0;
   let overallTotal = 0;
   for(let currColumn = widestOpenHours[0]; currColumn < widestOpenHours[1]; currColumn++) {
     let columnVal = findColumnVal(currColumn, isCookies);
-    appendAndSet(finalRow, 'td', columnVal);
+    createAppendSet(finalRow, 'td', columnVal);
     overallTotal += columnVal;
     if(columnVal > columnMax) {
       columnMax = columnVal;
     }
   }
   if(isCookies) {
-    appendAndSet(finalRow, 'td', overallTotal);
+    createAppendSet(finalRow, 'td', overallTotal);
   } else {
-    appendAndSet(finalRow, 'td', columnMax);
+    createAppendSet(finalRow, 'td', columnMax);
   }
 }
 
-function appendAndSet(parent, elemType, value) {
+function createAppendSet(parent, elemType, value) {
   const child = document.createElement(elemType);
   child.textContent = value;
   parent.appendChild(child);
@@ -177,14 +182,14 @@ function initializeSection(isCookies, currSection, elType) {
     if(currSection[0] !== undefined) {
       currSection[0].innerHTML = '';
     } else {
-      currSection[0] = appendAndSet(tables[0], elType);
+      currSection[0] = createAppendSet(tables[0], elType);
     }
     return currSection[0];
   } else {
     if(currSection[1] !== undefined) {
       currSection[1].innerHTML = '';
     } else {
-      currSection[1] = appendAndSet(tables[1], elType);
+      currSection[1] = createAppendSet(tables[1], elType);
     }
     return currSection[1];
   }
@@ -228,8 +233,8 @@ function initNewShop(event) {
     expandedHours = true;
   }
   if(expandedHours) {
-    printHTMLTable('Cookie Sales', 'Shop Total', true);
-    printHTMLTable('Staffing', 'Shop Max', false);
+    printTableMain(true, 'Shop Total');
+    printTableMain(false, 'Shop Max');
   } else {
     updateTable(newStand, true);
     updateTable(newStand, false);

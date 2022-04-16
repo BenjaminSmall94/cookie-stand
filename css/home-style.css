@@ -18,6 +18,10 @@ main > div:first-child > div {
   height: 240px;
 }
 
+body, header {
+  font-family: 'Times New Roman', Times, serif;
+  color:gold;
+}
 main > div:first-of-type > div:first-of-type {
   width: 55%;
   overflow: scroll;

@@ -1,6 +1,6 @@
 body {
   background-color: #42C4DB;
-  font-family: sans-serif;
+  font-family: Arial;
   color: white;
 }
 
@@ -14,8 +14,11 @@ h1, h2 {
   text-align: center;
 }
 
-h1 {
-  font-size: 28pt;
+header h1 {
+  font-family: 'Square Peg', cursive;
+  font-size: 48pt;
+  text-decoration: none;
+  color:gainsboro
 }
 
 h2 {
@@ -62,7 +65,7 @@ nav ul {
 }
 
 nav li {
-  color: white;
+  color: gold;
   border: 3px solid #525E75;
   border-radius: 5px;
   background-color: #224DA8;
@@ -73,7 +76,7 @@ nav li {
 }
 
 nav li a {
-  color: white;
+  color: gold;
 }
 
 #storeLogo {
