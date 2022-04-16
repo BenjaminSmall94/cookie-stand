@@ -42,23 +42,23 @@
               </div>
               <div>
                 <lable for="min">Min Hourly Customers</lable>
-                <input type="number" id="min" name="min">
+                <input type="number" id="min" name="min" min="0">
               </div>
               <div>
                 <lable for="max">Max Hourly Customers</lable>
-                <input type="number" id="max" name="max">
+                <input type="number" id="max" name="max" min="0">
               </div>
               <div>
                 <label for="avg">Avg Hourly Customers</label>
-                <input type="number" id="avg" name="avg" step="0.1" >
+                <input type="number" id="avg" name="avg" step="0.1" min ="0">
               </div>
               <div>
                 <label for="open">Opening Time</label>
-                <input type="number" id="open" name="open">
+                <input type="number" id="open" name="open" min="0" max="23" class="timeInput">
               </div>
               <div>
                 <label for="close">Closing Time</label>
-                <input type="number" id="close" name="close">
+                <input type="number" id="close" name="close" min="1" max="24" class="timeInput">
               </div>
               <button>Submit</button>
             </fieldset>

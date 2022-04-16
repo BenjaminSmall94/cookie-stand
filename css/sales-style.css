@@ -45,6 +45,10 @@ fieldset div input {
   height: 1em;
 }
 
+.timeInput {
+  width: 145px;
+}
+
 fieldset button {
   margin: 5px;
   font-size: large;
