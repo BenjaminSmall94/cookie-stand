@@ -46,7 +46,11 @@ fieldset div input {
 }
 
 .timeInput {
-  width: 145px;
+  width: 133.5px;
+}
+
+form input, form button {
+  color: black;
 }
 
 fieldset button {
