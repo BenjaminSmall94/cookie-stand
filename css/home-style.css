@@ -3,7 +3,7 @@ main > div {
   position: relative;
   width: 75vw;
   max-width: 960px;
-  min-width: 630px;
+  min-width: 660px;
   margin: 10px auto;
   display: flex;
   justify-content: space-between;
@@ -78,7 +78,7 @@ main > div:nth-child(2) img {
 footer > div {
   width: 75vw;
   max-width: 960px;
-  min-width: 630px;
+  min-width: 660px;
   margin: 10px auto;
 }
 

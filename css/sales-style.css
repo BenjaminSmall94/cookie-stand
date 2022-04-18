@@ -14,7 +14,7 @@ main > div > div {
 main > div:first-child {
   width: 75vw;
   max-width: 960px;
-  min-width: 630px;
+  min-width: 660px;
   display: flex;
   justify-content: space-around;
 }

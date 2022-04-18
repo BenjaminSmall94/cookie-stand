@@ -46,7 +46,7 @@ header > div > div:first-of-type {
 header > div {
   width: 75vw;
   max-width: 960px;
-  min-width: 630px;
+  min-width: 660px;
   margin: 8px auto;
 }
 
@@ -75,10 +75,7 @@ nav li {
   width: 120px;
   text-align: center;
   z-index: 1;
-}
-
-nav li a {
-  color: gainsboro;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
 #storeLogo {
